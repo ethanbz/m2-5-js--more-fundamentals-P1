@@ -19,12 +19,24 @@
 
 function calculator(arr) {
   // Your code here
+  if (arr.length !== 3 || typeof arr[1] !== 'number' || typeof arr[2] !== 'number') return undefined;
+
+  if (arr[0] === 'add') return arr[1] + arr[2];
+  if (arr[0] === 'sub') return arr[1] - arr[2];
+  if (arr[0] === 'mult') return arr[1] * arr[2];
+  return undefined;
 }
 
 // Step 2
 // We need 8 total test cases. The first two is provided.
 expect(calculator(['mult', 2, 4]), 8);
 expect(calculator(['add', 2, 4]), 6);
+expect(calculator(['sub', 2, 4]), -2);
+expect(calculator(['add', 2, 4, 6]), undefined);
+expect(calculator(['multiply', 2, 4]), undefined);
+expect(calculator(['add', 'a', 4]), undefined);
+expect(calculator([2, 2, 4]), undefined);
+expect(calculator(['add', 4]), undefined);
 
 /**
  * -------------------------------------------------------------------

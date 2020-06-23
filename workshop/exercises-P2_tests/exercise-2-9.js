@@ -14,7 +14,20 @@
 
 function longestWord(str) {
   // Place solution here
+  if (typeof str !== 'string') return undefined;
+  let arr = str.split(' ');
+  let longest = arr[0];
+  arr.forEach(word => {
+    if (word.length >= longest.length) longest = word;
+  })
+  return longest;
 }
+
+expect(longestWord("hey hello morning"), 'morning');
+expect(longestWord("morning"), 'morning');
+expect(longestWord(""), '');
+expect(longestWord("hey foo bar"), 'bar');
+expect(longestWord(3), undefined);
 
 // We need 5 test cases
 

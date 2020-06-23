@@ -15,8 +15,19 @@
 //  - Convert the filled array into a string (use the join method) and return it
 
 function reverse(str) {
-  // Your code here
+  if (typeof str !== 'string') return undefined;
+  let rts = '';
+  for (i = str.length-1; i >= 0; i--) {
+    rts += str.charAt(i);
+  }
+  return rts;
 }
+
+expect(reverse('hello'), 'olleh');
+expect(reverse("how are you"), "uoy era woh");
+expect(reverse(''), '');
+expect(reverse(2), undefined);
+expect(reverse('e'), 'e');
 
 // We need 5 test cases
 

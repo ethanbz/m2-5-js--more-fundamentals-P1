@@ -9,6 +9,8 @@
 
 function lastCharacter(str) {
   // Your code here
+  if (str.length === 0 || typeof str === 'number') return undefined;
+  return str.split('')[str.length-1];
 }
 
 // Step 2
@@ -16,6 +18,10 @@ function lastCharacter(str) {
 // conditions specified above (don't forget empty string and number!!)
 
 expect(lastCharacter('max'), 'x');
+expect(lastCharacter('mat'), 't');
+expect(lastCharacter('map'), 'p');
+expect(lastCharacter(''), undefined);
+expect(lastCharacter(2), undefined);
 
 // Add 4 more test cases here!
 // 🌠 NOTE 🌠

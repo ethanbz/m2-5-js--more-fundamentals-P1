@@ -13,7 +13,25 @@
 
 function repeat(arr) {
   // Your code here
+  if (arr.length !== 2 || typeof arr[1] !== 'number') return undefined;
+  if (arr[1] < 1) return '';
+  if (arr[0] !== 'string') arr[0] = String(arr[0]);
+  let str = '';
+  for (i = 0; i < arr[1]; i++) {
+    str += arr[0];
+  }
+  return str;
+  
 }
+
+expect(repeat(['foo', 6]), 'foofoofoofoofoofoo');
+expect(repeat(['fo', 1]), 'fo');
+expect(repeat(['foo', 0]), '');
+expect(repeat(['foo', -1]), '');
+expect(repeat(['foo', 'foo']), undefined);
+expect(repeat(['foo', 2, 3]), undefined);
+expect(repeat(['', 2]), '');
+expect(repeat([2, 2]), '22');
 
 // We need 7 test cases.
 // Don't forget to test all of the question parameters
